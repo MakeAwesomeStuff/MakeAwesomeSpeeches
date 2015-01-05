@@ -10,7 +10,8 @@
  */
 angular
   .module('makeawesomespeechesApp', [
-    'ngRoute'
+    'ngRoute',
+    'textAngular'
   ])
   .config(function ($routeProvider) {
     $routeProvider
