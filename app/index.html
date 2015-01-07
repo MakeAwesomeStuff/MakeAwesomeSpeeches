@@ -2,8 +2,8 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
+    <title>MakeAwesomeSpeeches</title>
+    <meta name="description" content="To help Toastmasters connect with their mentors to make awesome speeches">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -21,21 +21,12 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-          <li><a ng-href="#/editors">Editors</a></li>
-        </ul>
-        <h3 class="text-muted">makeawesomespeeches</h3>
-      </div>
 
       <div ng-view=""></div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+      <!-- <div class="footer">
+        <p><a href="http://www.makeawesomestuff.com">www.makeawesomestuff.com</a></p>
+      </div> -->
     </div>
 
 
@@ -66,11 +57,17 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/editors.js"></script>
-        <!-- endbuild -->
+    <!-- build:js(.) scripts/textAngular.js -->
+    <script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+    <!-- // <script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script> -->
+    <script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/editors.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
