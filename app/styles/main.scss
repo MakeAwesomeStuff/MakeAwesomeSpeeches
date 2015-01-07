@@ -1,11 +1,17 @@
+
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
 @import '../styles-imports/variables';
 @import '../styles-imports/mixins';
 @import '../styles-imports/scaffolding.scss';
 @import '../styles-imports/typography';
 
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-// endbower
+.form-control {
+  color: inherit;
+}
+
 
 .browsehappy {
   margin: 0.2em 0;
