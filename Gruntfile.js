@@ -27,6 +27,30 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    aws: grunt.file.readJSON('./deploy-configs/makeawesomespeeches-aws-keys.json'),
+
+    /*jshint camelcase: false */
+    aws_s3: {
+      options: {
+        accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
+        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env variables
+        region: 'ap-southeast-2',
+        uploadConcurrency: 5, // 5 simultaneous uploads
+        downloadConcurrency: 5 // 5 simultaneous downloads
+      },
+      production: {
+        options: {
+          bucket: 'www.makeawesomespeeches.com',
+          params: {
+            // ContentEncoding: 'gzip', // applies to all the files!,
+          }
+        },
+        files: [
+          {expand: true, cwd: 'dist/', src: ['**'], dest: '/'}
+        ]
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -432,5 +456,10 @@ module.exports = function (grunt) {
     'newer:jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'default',
+    'aws_s3:production'
   ]);
 };
