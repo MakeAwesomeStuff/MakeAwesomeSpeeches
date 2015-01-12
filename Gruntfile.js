@@ -29,25 +29,17 @@ module.exports = function (grunt) {
 
     aws: grunt.file.readJSON('./deploy-configs/makeawesomespeeches-aws-keys.json'),
 
-    /*jshint camelcase: false */
-    aws_s3: {
+    // Will auto gzip
+    s3: {
       options: {
-        accessKeyId: '<%= aws.AWSAccessKeyId %>', // Use the variables
-        secretAccessKey: '<%= aws.AWSSecretKey %>', // You can also use env variables
-        region: 'ap-southeast-2',
-        uploadConcurrency: 5, // 5 simultaneous uploads
-        downloadConcurrency: 5 // 5 simultaneous downloads
+        accessKeyId: "<%= aws.AWSAccessKeyId %>",
+        secretAccessKey: "<%= aws.AWSSecretKey %>",
+        bucket: "www.makeawesomespeeches.com",
+        region: 'ap-southeast-2'
       },
-      production: {
-        options: {
-          bucket: 'www.makeawesomespeeches.com',
-          params: {
-            // ContentEncoding: 'gzip', // applies to all the files!,
-          }
-        },
-        files: [
-          {expand: true, cwd: 'dist/', src: ['**'], dest: '/'}
-        ]
+      build: {
+        cwd: "dist/",
+        src: "**"
       }
     },
 
@@ -460,6 +452,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('deploy', [
     'default',
-    'aws_s3:production'
+    's3'
   ]);
 };
