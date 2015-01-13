@@ -12,7 +12,6 @@
   color: inherit;
 }
 
-
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -25,6 +24,25 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+/* Remove styling from main input */
+.ta-root.focussed .ta-scroll-window.form-control {
+  border: none;
+  outline: none;
+  @include box-shadow(none);
+}
+.form-control {
+  border: none;
+  @include box-shadow(none);
+  div {
+    outline: none;
+  }
+}
+p strong,
+p b {
+  font-size: floor(($font-size-base * 1.5));
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
