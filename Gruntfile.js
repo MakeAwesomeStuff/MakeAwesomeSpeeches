@@ -32,14 +32,14 @@ module.exports = function (grunt) {
     // Will auto gzip
     s3: {
       options: {
-        accessKeyId: "<%= aws.AWSAccessKeyId %>",
-        secretAccessKey: "<%= aws.AWSSecretKey %>",
-        bucket: "www.makeawesomespeeches.com",
+        accessKeyId: '<%= aws.AWSAccessKeyId %>',
+        secretAccessKey: '<%= aws.AWSSecretKey %>',
+        bucket: 'www.makeawesomespeeches.com',
         region: 'ap-southeast-2'
       },
       build: {
-        cwd: "dist/",
-        src: "**"
+        cwd: 'dist/',
+        src: '**'
       }
     },
 
