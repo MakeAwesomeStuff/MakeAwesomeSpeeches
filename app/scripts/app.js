@@ -10,8 +10,10 @@
  */
 angular
   .module('makeawesomespeechesApp', [
+    'makeawesomespeeches.config',
     'ngRoute',
-    'textAngular'
+    'textAngular',
+    'firebase.utils'
   ])
   .config(function ($routeProvider) {
     $routeProvider
