@@ -13,7 +13,8 @@ angular
     'makeawesomespeeches.config',
     'ngRoute',
     'textAngular',
-    'firebase.utils'
+    'firebase.utils',
+    'loginHandler'
   ])
   .config(function ($routeProvider) {
     $routeProvider

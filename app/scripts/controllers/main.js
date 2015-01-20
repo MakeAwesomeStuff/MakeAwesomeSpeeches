@@ -8,7 +8,7 @@
  * Controller of the makeawesomespeechesApp
  */
 angular.module('makeawesomespeechesApp')
-  .controller('MainCtrl', ['$scope', 'fbutil', function($scope, fbutil) {
+  .controller('MainCtrl', ['$scope', 'fbutil', 'loginHandler', function($scope, fbutil, loginHandler) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -19,5 +19,9 @@ angular.module('makeawesomespeechesApp')
   var syncObject = fbutil.syncObject('speech');
   // synchronize the object with a three-way data binding
   syncObject.$bindTo($scope, 'speech');
+
+  $scope.login = function() {
+    loginHandler.login();
+  };
 
   }]);
