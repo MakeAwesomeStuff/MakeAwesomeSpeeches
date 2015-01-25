@@ -8,7 +8,7 @@
  * Controller of the makeawesomespeechesApp
  */
 angular.module('makeawesomespeechesApp')
-  .controller('MainCtrl', ['$scope', 'fbutil', 'loginHandler', function($scope, fbutil, loginHandler) {
+  .controller('MainCtrl', ['$scope', '$location', 'fbutil', 'loginHandler', function($scope, $location, fbutil, loginHandler) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,8 +20,19 @@ angular.module('makeawesomespeechesApp')
   // synchronize the object with a three-way data binding
   syncObject.$bindTo($scope, 'speech');
 
+  // Does this work? it should come in through as an argument
+  $scope.user = loginHandler.getUser();
+
   $scope.login = function() {
-    loginHandler.login();
+    loginHandler.login().then(function(){
+      $location.path('/account');
+    });
+  };
+
+  $scope.getUser = function() {
+    $scope.user = loginHandler.getUser().then(function(user) {
+      $scope.user = user;
+    });
   };
 
   }]);

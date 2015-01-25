@@ -38,9 +38,9 @@ angular.module('loginHandler', ['firebase', 'firebase.utils'])
          */
         login: function() {
           return auth.$authWithOAuthPopup('facebook').then(function(authData) {
-              console.log('Logged in as:', authData.uid);
+              // console.log('Logged in as:', authData.uid);
             }).catch(function(error) {
-              console.error('Authentication failed: ', error);
+              // console.error('Authentication failed: ', error);
             });
         },
 
