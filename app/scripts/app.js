@@ -92,7 +92,6 @@ angular.module('makeawesomespeechesApp.routes', ['ngRoute', 'loginHandler'])
    */
   .run(['$rootScope', '$location', 'loginHandler', 'ROUTES', 'loginRedirectPath',
     function($rootScope, $location, loginHandler, ROUTES, loginRedirectPath) {
-
       function check(user) {
         // used by the changeEmail functionality so the user
         // isn't redirected to the login screen while we switch

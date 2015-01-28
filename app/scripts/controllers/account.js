@@ -8,10 +8,6 @@
  * Controller of the makeawesomespeechesApp
  */
 angular.module('makeawesomespeechesApp')
-  .controller('AccountCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('AccountCtrl', ['$scope', 'user', function ($scope, user) {
+    $scope.user = user;
+  }]);
