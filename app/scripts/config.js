@@ -8,7 +8,7 @@ angular.module('makeawesomespeeches.config', [])
   // .constant('version', '0.8.2')
 
   // where to redirect users if they need to authenticate (see routeSecurity.js)
-  .constant('loginRedirectPath', '/')
+  .constant('loginRedirectPath', '/welcome')
 
   // your Firebase data URL goes here, no trailing slash
   .constant('FBURL', 'https://ma-speeches.firebaseio.com');

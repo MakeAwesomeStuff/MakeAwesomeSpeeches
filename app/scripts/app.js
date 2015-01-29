@@ -25,7 +25,8 @@ angular.module('makeawesomespeechesApp.routes', ['ngRoute', 'loginHandler'])
   .constant('ROUTES', {
       '/': {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        authRequired: true
       },
       '/about': {
         templateUrl: 'views/about.html',
@@ -85,7 +86,7 @@ angular.module('makeawesomespeechesApp.routes', ['ngRoute', 'loginHandler'])
       }
     });
     // routes which are not in our map are redirected to /
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise({redirectTo: '/welcome'});
   }])
 
   /**
