@@ -39,6 +39,10 @@ angular.module('makeawesomespeechesApp.routes', ['ngRoute', 'loginHandler'])
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl',
         authRequired: true
+      },
+      '/welcome': {
+        templateUrl: 'views/welcome.html',
+        controller: 'WelcomeCtrl'
       }
       // otherwise done in method below
   })
