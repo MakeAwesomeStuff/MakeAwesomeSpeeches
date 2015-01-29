@@ -8,6 +8,99 @@
 @import '../styles-imports/scaffolding.scss';
 @import '../styles-imports/typography';
 
+body {
+  position: relative;
+}
+header.welcome {
+  background: gray;
+  color: white;
+  display: table;
+  height: 100vh;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+  .container {
+    bottom: 200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 2;
+  }
+  .background {
+    background: 100% 50% no-repeat;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+    background-size: cover;
+    bottom: 0;
+    display: table-cell;
+    background-image: url("../images/welcome-bg-1.jpg");
+    float: none;
+    left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    z-index: 1;
+  }
+  .hero-unit {
+    margin-bottom: 30px;
+  }
+  h1 {
+    color: #ffffff;
+    font-size: 41px;
+    font-weight: 500;
+    line-height: 43.99999999999999px;
+    margin: 0 0 10px;
+  }
+  p {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 38px;
+    margin-bottom: 0 0 10px;
+  }
+
+  .btn {
+    font-weight: 500;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .btn.btn-default {
+    background: transparent;
+    color: white;
+    &:hover, &:active, &:focus {
+      background: white;
+      color: $text-color;
+    }
+  }
+  .btn.btn-large {
+    font-size: 17px;
+    padding: 12px 18px;
+  }
+  .btns .btn + .btn {
+    margin-left: 20px;
+  }
+}
+
 .form-control {
   color: inherit;
 }
@@ -43,87 +136,3 @@ p b {
   font-size: floor(($font-size-base * 1.5));
 }
 
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
-
-.ta-editor {
-  min-height: 300px;
-  height: auto;
-  overflow: auto;
-  font-family: inherit;
-  font-size: 100%;
-  margin:20px 0;
-}
