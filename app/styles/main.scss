@@ -118,6 +118,9 @@ header.welcome {
   outline: none;
   @include box-shadow(none);
 }
+.ta-scroll-window > .ta-bind {
+  padding: 6px 0;
+}
 .form-control {
   border: none;
   @include box-shadow(none);

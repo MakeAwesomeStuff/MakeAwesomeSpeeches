@@ -1,4 +1,6 @@
-<h1>{{user.facebook.displayName}}'s stories</h1>
-<p>This is the account view.</p>
-<p>Stories will be stored under user/authData.uid/storyid</p>
-<p><strong>authData.uid:</strong> {{ user.uid }}</p>
+<h3>{{user.facebook.displayName}}'s Speech</h3>
+
+<div  text-angular
+      ng-model="currentSpeech.content"
+      ta-toolbar="''"
+      placeholder="My IceBreaker Speech">
