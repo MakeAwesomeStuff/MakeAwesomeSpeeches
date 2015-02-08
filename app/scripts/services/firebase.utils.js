@@ -67,6 +67,7 @@ angular.module('firebase.utils', ['firebase', 'makeawesomespeeches.config'])
       function syncData(path, props) {
         var ref = firebaseRef(path);
         props = angular.extend({}, props);
+        // Below is beind deprecated
         angular.forEach(['limit', 'startAt', 'endAt'], function(k) {
           if( props.hasOwnProperty(k) ) {
             var v = props[k];
@@ -76,7 +77,7 @@ angular.module('firebase.utils', ['firebase', 'makeawesomespeeches.config'])
         });
         return $firebase(ref, props);
       }
-      
+
       return {
         syncObject: function(path, factoryConfig) {
           return syncData.apply(null, arguments).$asObject();
@@ -84,6 +85,13 @@ angular.module('firebase.utils', ['firebase', 'makeawesomespeeches.config'])
 
         syncArray: function(path, factoryConfig) {
           return syncData.apply(null, arguments).$asArray();
+        },
+
+        pushObject: function(path, object) {
+          // Could probably put this in one that updates the ref as well
+          var ref = firebaseRef(path);
+          var newPostRef = ref.push(object);
+          return newPostRef.key();
         },
 
         ref: firebaseRef
