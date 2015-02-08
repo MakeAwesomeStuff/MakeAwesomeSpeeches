@@ -24,8 +24,8 @@ angular
 angular.module('makeawesomespeechesApp.routes', ['ngRoute', 'loginHandler'])
   .constant('ROUTES', {
       '/': {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: 'views/account.html',
+        controller: 'AccountCtrl',
         authRequired: true
       },
       '/about': {
