@@ -1,6 +1,7 @@
 <h3>{{user.facebook.displayName}}'s Speech</h3>
-<button class="btn btn-primary" ng-click="newSpeech()">New Speech</button>
+<p>{{ speechList.length }}</p>
+<button class="btn btn-primary" ng-click="createSpeech()">New Speech</button>
 <div  text-angular
       ng-model="currentSpeech.content"
       ta-toolbar="''"
-      placeholder="My IceBreaker Speech">
+      placeholder=""></div>
