@@ -90,8 +90,7 @@ angular.module('firebase.utils', ['firebase', 'makeawesomespeeches.config'])
         pushObject: function(path, object) {
           // Could probably put this in one that updates the ref as well
           var ref = firebaseRef(path);
-          var newPostRef = ref.push(object);
-          return newPostRef.key();
+          return $firebase(ref).$push(object);
         },
 
         ref: firebaseRef
