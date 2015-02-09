@@ -133,3 +133,17 @@ p b {
   font-size: floor(($font-size-base * 1.5));
 }
 
+.logo {
+  margin: 41px 0;
+  line-height: 20px;
+}
+
+.speechlist {
+  margin-top: 41px;
+  color: $silver;
+  font-weight: 200;
+}
+
+.speechContent {
+  margin-bottom: 81px;
+}

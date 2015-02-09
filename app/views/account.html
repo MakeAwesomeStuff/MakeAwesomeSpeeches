@@ -1,7 +1,23 @@
-<h3>{{user.facebook.displayName}}'s Speech</h3>
-<p>{{ speechList.length }}</p>
-<button class="btn btn-primary" ng-click="createSpeech()">New Speech</button>
-<div  text-angular
-      ng-model="currentSpeech.content"
-      ta-toolbar="''"
-      placeholder=""></div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="logo">
+      Make<wbr><strong>Awesome</strong><wbr>Speeches
+    </div>
+    <button class="btn btn-primary btn-block" ng-click="createSpeech()">
+      New Speech
+    </button>
+    <ul class="list-unstyled speechlist">
+      <li ng-repeat="speech in speechList">
+        {{ speech.title }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-8 col-md-offset-1">
+    <h3>{{currentSpeech.title}}</h3>
+    <div  class ="speechContent"
+          text-angular
+          ng-model="currentSpeech.content"
+          ta-toolbar="''"
+          placeholder=""></div>
+  </div>
+</div>
