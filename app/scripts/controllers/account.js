@@ -27,7 +27,7 @@ angular.module('makeawesomespeechesApp')
 
     $scope.createSpeech = function() {
       var newSpeech = {
-        content: 'Brand new speech!',
+        content: 'Brand new speech! CLICK HERE AND EDIT ME :)',
         createdOn: new Date().toJSON(),
         title: 'Speech ' + ($scope.speechList.length+1)
       };
