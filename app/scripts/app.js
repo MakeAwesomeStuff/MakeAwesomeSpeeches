@@ -15,6 +15,7 @@ angular
     'textAngular',
     'firebase.utils',
     'loginHandler',
+    'monospaced.elastic',
     'makeawesomespeechesApp.routes'
   ]);
 

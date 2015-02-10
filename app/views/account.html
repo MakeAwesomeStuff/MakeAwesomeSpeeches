@@ -13,7 +13,12 @@
     </ul>
   </div>
   <div class="col-md-8 col-md-offset-1">
-    <h3>{{currentSpeech.title}}</h3>
+    <textarea
+          msd-elastic
+          class="speechTitle form-control"
+          ng-model="currentSpeech.title"
+          ng-change="titleUpdated()"
+          rows="1"></textarea>
     <div  class ="speechContent"
           text-angular
           ng-model="currentSpeech.content"

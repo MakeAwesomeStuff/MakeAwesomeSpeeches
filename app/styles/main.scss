@@ -113,10 +113,14 @@ header.welcome {
 }
 
 /* Remove styling from main input */
-.ta-root.focussed .ta-scroll-window.form-control {
+.ta-root.focussed .ta-scroll-window.form-control,
+input.speechTitle,
+textarea.speechTitle,
+textarea.speechTitle.form-control:focus {
   border: none;
   outline: none;
   @include box-shadow(none);
+  resize: none;
 }
 .ta-scroll-window > .ta-bind {
   padding: 6px 0;
@@ -142,8 +146,35 @@ p b {
   margin-top: 41px;
   color: $silver;
   font-weight: 200;
+  line-height: 28px;
+  li {
+    margin-bottom: 31px;
+  }
 }
 
 .speechContent {
   margin-bottom: 81px;
+}
+
+.speechTitle {
+  font-size: 54px;
+  font-weight: 600;
+  margin-top: 17px;
+  margin-bottom: 17px;
+  min-height: 90px;
+  padding: 0;
+  resize: none;
+    -moz-transition: 0.05s;
+    -webkit-transition: 0.05s;
+    -o-transition: 0.05s;
+  transition: 0.05s;
+  word-wrap: break-word;
+
+  .form-control {
+    line-height: 63px;
+  }
+  .ta-scroll-window.form-control,
+  .ta-scroll-window > .ta-bind {
+    min-height: 90px;
+  }
 }
