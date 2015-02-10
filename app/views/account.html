@@ -8,7 +8,7 @@
     </button>
     <ul class="list-unstyled speechlist">
       <li ng-repeat="speech in speechList">
-        {{ speech.title }}
+        <a ng-href="#/speech/{{speech.key}}">{{ speech.title }}</a>
       </li>
     </ul>
   </div>

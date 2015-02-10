@@ -28,6 +28,11 @@ angular.module('makeawesomespeechesApp.routes', ['ngRoute', 'loginHandler'])
         controller: 'AccountCtrl',
         authRequired: true
       },
+      '/speech/:speechId': {
+        templateUrl: 'views/account.html',
+        controller: 'AccountCtrl',
+        authRequired: true
+      },
       '/about': {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'

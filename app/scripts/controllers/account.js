@@ -8,20 +8,8 @@
  * Controller of the makeawesomespeechesApp
  */
 angular.module('makeawesomespeechesApp')
-  .controller('AccountCtrl', ['$scope', '$location', 'fbutil', 'user',
-                    function ($scope, $location, fbutil, user) {
-    $scope.user = user;
-
-    // Get list of stories and use that to find the latest
-    // Note: Remember not to use push(), splice(), etc on this 'array'
-    $scope.speechList = fbutil.syncArray('userSpeechesList/'+user.uid);
-    $scope.speechList.$loaded(function() {
-      if ($scope.speechList.length === 0) {
-        $scope.createSpeech();
-      } else {
-        $scope.syncLatestSpeech();
-      }
-    });
+  .controller('AccountCtrl', ['$scope', '$location', '$routeParams', 'fbutil', 'user',
+                    function ($scope, $location, $routeParams, fbutil, user) {
 
     $scope.syncLatestSpeech = function() {
       var storyKey = $scope.speechList[$scope.speechList.length-1].key;
@@ -54,5 +42,26 @@ angular.module('makeawesomespeechesApp')
         });
       });
     };
+
+    $scope.user = user;
+
+    // Determine wether we show the latest, or a specific story
+    var needToLoadLatestSpeech = true;
+    if ($routeParams.speechId) {
+      needToLoadLatestSpeech = false;
+      $scope.syncSpeech($routeParams.speechId);
+    }
+
+
+    // Get list of stories and use that to find the latest
+    // Note: Remember not to use push(), splice(), etc on this 'array'
+    $scope.speechList = fbutil.syncArray('userSpeechesList/'+user.uid);
+    $scope.speechList.$loaded(function() {
+      if ($scope.speechList.length === 0) {
+        $scope.createSpeech();
+      } else if (needToLoadLatestSpeech) {
+        $scope.syncLatestSpeech();
+      }
+    });
 
   }]);
