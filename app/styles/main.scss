@@ -118,8 +118,9 @@ input.speechTitle,
 textarea.speechTitle,
 textarea.speechTitle.form-control:focus {
   border: none;
-  outline: none;
   @include box-shadow(none);
+  outline: none;
+  margin-bottom: 0;
   resize: none;
 }
 .ta-scroll-window > .ta-bind {
@@ -152,10 +153,6 @@ p b {
   }
 }
 
-.speechContent {
-  margin-bottom: 81px;
-}
-
 .speechTitle {
   font-size: 54px;
   font-weight: 600;
@@ -177,4 +174,10 @@ p b {
   .ta-scroll-window > .ta-bind {
     min-height: 90px;
   }
+}
+
+.speechLength {
+  color: $silver;
+  font-weight: lighter;
+  margin-bottom: 0;
 }

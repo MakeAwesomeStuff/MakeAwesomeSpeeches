@@ -11,6 +11,8 @@ angular.module('makeawesomespeechesApp')
   .controller('AccountCtrl', ['$scope', '$location', '$routeParams', 'fbutil', 'user',
                     function ($scope, $location, $routeParams, fbutil, user) {
 
+    $scope.speechlength = '';
+
     function setActiveSpeechListItem(storyKey) {
       if ($scope.isCurrentSpeechLoaded && $scope.isSpeechListLoaded) {
         if (!storyKey) {
@@ -34,6 +36,26 @@ angular.module('makeawesomespeechesApp')
       $scope.syncSpeech(storyKey);
     };
 
+    var div = document.createElement('div');
+    function stripHtml(s) {
+      s = s.replace(/<br\/>/gi, ' '); // Breaks should be a space
+      s = s.replace(/&nbsp;/gi,' '); // exclude html spaces
+      s = s.replace(/&#160;/gi,' '); // exclude html spaces
+      s = s.replace(/<p>/gi,' '); // exclude html spaces
+      s = s.replace(/<\/p>/gi,' '); // exclude html spaces
+      div.innerHTML = s;
+      return div.textContent || div.innerText || '';
+    }
+
+    function countWords(s){
+        s = stripHtml(s);
+        s = s.replace(/(^\s*)|(\s*$)/gi,''); //exclude  start and end white-space
+        s = s.replace(/\s{2,}/g, ' ');//2 or more space to 1
+        s = s.replace(/\n /,'\n'); // exclude newline with a start spacing
+        return s.split(' ').length;
+    }
+
+    var wordsPerMinute = 130;
     $scope.syncSpeech = function(storyKey) {
       $scope.isCurrentSpeechLoaded = false;
       if ($scope.syncedObject) {
@@ -44,6 +66,15 @@ angular.module('makeawesomespeechesApp')
       $scope.syncedObject.$bindTo($scope, 'currentSpeech').then(function () {
         $scope.isCurrentSpeechLoaded = true;
         setActiveSpeechListItem();
+        $scope.$watch('currentSpeech.content', function() {
+          var numWords = countWords($scope.currentSpeech.content);
+          var lengthInMinutes = numWords/wordsPerMinute;
+          if (lengthInMinutes < 2) {
+            $scope.speechlength = '';
+          } else {
+            $scope.speechlength = 'This speech is ' + Math.round(numWords/wordsPerMinute) + 'ish minutes long';
+          }
+        });
       });
     };
 

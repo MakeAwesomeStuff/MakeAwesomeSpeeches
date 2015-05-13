@@ -19,10 +19,13 @@
           ng-model="currentSpeech.title"
           ng-change="titleUpdated()"
           rows="1"></textarea>
+    <p class="speechLength small">{{speechlength}}</p>
     <div  class ="speechContent"
           text-angular
           ng-model="currentSpeech.content"
           ta-toolbar="''"
           placeholder=""></div>
+
+    <p class="speechLength small">{{speechlength}}</p>
   </div>
 </div>
